@@ -40,7 +40,16 @@ The triangle is right-angled.
 **File:** `palindrome.c`
 
 ### Description
-_(In progress — will check whether a given number reads the same forwards and backwards.)_
+This program takes an integer as input and determines whether it is a **Palindrome** (reads the same forwards and backwards, e.g., `121`) or not (e.g., `1234`).
+
+### Logic
+- Store a copy of the original number before processing (since reversing consumes the number).
+- Use a `while` loop to reverse the number digit by digit:
+  - `digit = number % 10` — extracts the last digit
+  - `reversed = (reversed * 10) + digit` — rebuilds the number in reverse
+  - `number = number / 10` — removes the last digit, shrinking the number
+  - Loop continues until `number` becomes `0`
+- Compare the original number to the reversed number. If they match, it's a palindrome.
 
 ### How to Compile and Run
 ```bash
@@ -48,10 +57,16 @@ gcc palindrome.c -o palindrome
 ./palindrome
 ```
 
+### Sample Run
+```
+Enter a number: 121
+121 is a Palindrome.
+```
+```
+Enter a number: 1234
+1234 is NOT a Palindrome.
+```
+
 ## Author
 
 Jennifer — COS 102, Miva Open University
-
-## Notes
-
-Each program includes basic input validation and clear prompts, written and tested step by step as part of a beginner-friendly walkthrough of C fundamentals (variables, `scanf`/`printf`, conditionals, and pointers/address-of operator).
